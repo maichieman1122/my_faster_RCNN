@@ -32,19 +32,19 @@ class Config:
 
     # preset
     data = 'voc'
-    pretrained_model = 'vgg16'
+    pretrained_model = 'resnet101'
 
     # training
-    epoch = 14
+    epoch = 100
 
 
-    use_adam = False # Use Adam optimizer
+    use_adam = True # Use Adam optimizer
     use_chainer = False # try match everything as chainer
     use_drop = False # use dropout in RoIHead
     # debug
     debug_file = '/tmp/debugf'
 
-    test_num = 10000
+    test_num = 5
     # model
     load_path = None
 

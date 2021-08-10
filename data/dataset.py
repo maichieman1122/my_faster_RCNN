@@ -14,6 +14,14 @@ from data import util
 import numpy as np
 from our_utils.config import opt
 
+def inverse_normalize(img):
+    if opt.caffe_pretrain:
+        img = img + (np.array([122.7717, 115.9465, 102.9801]).reshape(3, 1, 1))
+        return img[::-1, :, :]
+    # approximate un-normalize for visualize
+    return (img * 0.225 + 0.45).clip(min=0, max=1) * 255
+
+
 def pytorch_normalze(img):
     normalize = tvtsf.Normalize(mean=[0.485, 0.456, 0.406],
                                 std=[0.229, 0.224, 0.225])
